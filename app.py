@@ -1,1 +1,1 @@
-print("Application version 2.1.0")
+print("Application version 2.1.1 - bug fixed")
