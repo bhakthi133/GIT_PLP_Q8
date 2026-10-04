@@ -1,0 +1,29 @@
+name: Data Pipeline Tests
+
+on:
+  push:
+    paths:
+      - 'data-pipeline/**'
+  pull_request:
+    paths:
+      - 'data-pipeline/**'
+
+jobs:
+  testing-data-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Running that data-pipeline tests
+        working-directory: data-pipeline
+        run: pytest
